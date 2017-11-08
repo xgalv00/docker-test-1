@@ -8,3 +8,6 @@ post_install:
     - echo hello world
     - echo TEST_VAL is $TEST_VAL
     - echo domain is $DYNDEPLOY_DOMAIN
+compose_files:
+  - docker-compose-alternate.yml
+  - docker-compose222.yml
