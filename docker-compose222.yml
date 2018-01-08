@@ -1,7 +1,9 @@
 version: '3.1'
 services:
   stuff-service:
-    build: ./stuff
+    build:
+        context: ./stuff
+        dockerfile: Dockerfile-alternate
     ports:
       - 80:80
     environment:
