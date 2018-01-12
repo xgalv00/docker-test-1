@@ -8,3 +8,5 @@ post_install:
     - echo hello world
     - echo TEST_VAL is $TEST_VAL
     - echo domain is $DYNDEPLOY_DOMAIN
+context_path:
+  './stuff'
