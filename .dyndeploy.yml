@@ -1,13 +1,32 @@
-vm:
-  - size: 1G
-  - type: linode
 environment:
   TEST_VAL=42
-post_install:
-  stuff-service:
-    - echo hello world
-    - echo TEST_VAL is $TEST_VAL
-    - echo domain is $DYNDEPLOY_DOMAIN
+ready_wait:
+  120
+pre_launch:
+  - target: 'stuff-service'
+    command: cp
+    docker: true
+    options: './test {target}:/'
+post_launch:
+  - target: 'stuff-service'
+    command: exec
+    docker: true
+    options: '-it {target} echo hello world'
+  - target: 'stuff-service'
+    command: run
+    docker: false
+    options: '{target} echo TEST_VAL is $TEST_VAL'
+  - target: 'stuff-service'
+    command: exec
+    options: '{target} echo domain is $DYNDEPLOY_DOMAIN'
 compose_files:
-  - docker-compose-alternate.yml
-  - docker-compose222.yml
+  name1:
+    filename:
+      docker-compose-alternate.yml
+    build_options:
+      website
+    run_options:
+      website
+  name2:
+    filename:
+      docker-compose222.yml
