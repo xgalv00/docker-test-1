@@ -1,6 +1,3 @@
-vm:
-  - size: 1G
-  - type: linode
 environment:
   TEST_VAL=42
 post_install:
