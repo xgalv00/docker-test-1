@@ -23,10 +23,3 @@ compose_files:
   name1:
     filename:
       docker-compose-alternate.yml
-    build_options:
-      website
-    run_options:
-      website
-  name2:
-    filename:
-      docker-compose222.yml
