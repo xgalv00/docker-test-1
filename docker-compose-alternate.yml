@@ -8,4 +8,4 @@ services:
       - 80:80
     environment:
       - TEST_VAL
-      - DYNDEPLOY_DOMAIN
+      - SQUASH_DOMAIN
