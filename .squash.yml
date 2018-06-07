@@ -4,4 +4,4 @@ post_install:
   stuff-service:
     - echo hello world
     - echo TEST_VAL is $TEST_VAL
-    - echo domain is $DYNDEPLOY_DOMAIN
+    - echo domain is $SQUASH_DOMAIN
