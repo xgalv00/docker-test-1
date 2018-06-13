@@ -47,3 +47,41 @@ deployments:
         command: exec
         docker: true
         options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
+  branchDomain:
+    environment:
+      TEST_VAL=42
+    domains: squash.io
+    filename:
+      ./stuff/Dockerfile
+    context_path: ./stuff
+  another_branch:
+    environment:
+      TEST_VAL=42
+    domains: squash.io
+    filename:
+      ./stuff/Dockerfile
+    context_path: ./stuff
+    subdomains: test
+  subdomains:
+    environment:
+      TEST_VAL=42
+    filename:
+      ./stuff/Dockerfile
+    context_path: ./stuff
+    subdomains:
+      - test1
+      - something
+      - abc
+  subdomains-no-default:
+    environment: TEST_VAL=42
+    default_pr_comment: false
+    filename: ./stuff/Dockerfile
+    context_path: ./stuff
+    subdomains:
+      header1:
+        - something
+        - abc
+      header2:
+        - a123
+        - b456
+
