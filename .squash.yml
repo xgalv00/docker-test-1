@@ -86,7 +86,6 @@ deployments:
         - b456
   subdomains:
     environment: TEST_VAL=42
-    default_pr_comment: false
     filename: ./stuff/Dockerfile
     context_path: ./stuff
     subdomains:
