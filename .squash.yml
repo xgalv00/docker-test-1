@@ -72,7 +72,7 @@ deployments:
       - test1
       - something
       - abc
-  subdomains-no-default:
+  subdomains_no_default:
     environment: TEST_VAL=42
     default_pr_comment: false
     filename: ./stuff/Dockerfile
