@@ -1,0 +1,4 @@
+deployments:
+  default:
+    filename: ./stuff/Dockerfile
+    context_path: ./stuff
