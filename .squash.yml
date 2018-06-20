@@ -28,7 +28,7 @@ deployments:
     filename:
       ./stuff/Dockerfile
     dockerfileonly: true
-    run_options: -e TEST_VAL2=${SQUASH_BRANCH_WITH_ID} -e TEST_VAL=${TEST_VAL} -e SQUASH_DOMAIN=${SQUASH_DOMAIN}
+    run_options: -v /assets/data:/home/devel/data -v /assets/cache:/home/devel/cache -e TEST_VAL2=${SQUASH_BRANCH_WITH_ID} -e TEST_VAL=${TEST_VAL} -e SQUASH_DOMAIN=${SQUASH_DOMAIN}
     context_path: ./stuff
     post_launch:
       - target: 'stuff-service'
