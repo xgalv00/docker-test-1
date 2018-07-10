@@ -54,6 +54,7 @@ deployments:
       120
     filename:
       ./stuff/DockerfileA
+    dockerfileonly: true
     run_options: --env TEST_VAL2=43
     context_path: ./stuff
     post_launch:
@@ -72,6 +73,7 @@ deployments:
       120
     filename:
       ./stuff/DockerfileB
+    dockerfileonly: true
     run_options: --env TEST_VAL2=${SQUASH_DOMAIN}
     context_path: ./stuff
     post_launch:
