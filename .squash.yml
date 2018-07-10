@@ -1,27 +1,10 @@
-deployments:
+      deployments:
   default:
     environment:
       TEST_VAL=42
     ready_wait: 120
-    post_launch:
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo domain is $SQUASH_DOMAIN'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo branch id is $SQUASH_BRANCH_WITH_ID'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL2 is $TEST_VAL2'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
         options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
   branch:
-    environment:
       TEST_VAL=42
     ready_wait:
       120
@@ -72,16 +55,14 @@ deployments:
     ready_wait:
       120
     filename:
-      ./stuff/DockerfileB
-    dockerfileonly: true
+      asdasd'asd';asf
     run_options: --env TEST_VAL2=${SQUASH_DOMAIN}
-    context_path: ./stuff
-    post_launch:
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL2 is $TEST_VAL2'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
+  post_launch:
+    - target: 'stuff-service'
+      command: exec
+      docker: true
+      options: -it {target} bash -c 'echo TEST_VAL2 is $TEST_VAL2'
+    - target: 'stuff-service'
+      command: exec
+      docker: true
+      options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
