@@ -19,13 +19,14 @@ def activate_job():
 
 @app.route('/')
 def index():
+    logging.warning(request.referrer)
     return '<body>Hello world. <a href="/about/">About this page</a>.</body>'
 
 
-@app.route('/about')
+@app.route('/about/')
 def about():
     logging.warning(request.referrer)
-    return '<body>This is the about page</body>'
+    return '<body>This is the about page. <a href="/">Go back</a></body>'
 
 
 if __name__ == "__main__":
