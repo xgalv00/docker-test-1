@@ -116,6 +116,6 @@ deployments:
     dockerimage:
       r.cfcr.io/wisedrette/wisedrette/dockertest:master
     docker_registry:
-      registry: r.cfcr.io
+      server: r.cfcr.io
       username: wisedrette
       password: $REGISTRY_PASSWORD
