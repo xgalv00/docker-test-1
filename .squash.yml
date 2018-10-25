@@ -112,3 +112,10 @@ deployments:
         command: exec
         docker: true
         options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
+  nodocker:
+    dockerimage:
+      r.cfcr.io/wisedrette/wisedrette/dockertest:master
+    docker_registry:
+      registry: r.cfcr.io
+      username: wisedrette
+      password: $REGISTRY_PASSWORD
