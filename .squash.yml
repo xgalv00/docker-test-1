@@ -112,6 +112,9 @@ deployments:
         command: exec
         docker: true
         options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
+  branchCompose:
+    filename:
+      ./docker-compose.yml
   nodocker:
     dockerimage:
       r.cfcr.io/wisedrette/wisedrette/dockertest:master
