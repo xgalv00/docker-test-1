@@ -16,5 +16,27 @@ adduser --disabled-login --disabled-password --gecos "" devel && \
 echo "devel ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
 usermod -p '*' devel && chmod 777 /var/run && chmod 777 /var/log
 
+RUN DEBIAN_FRONTEND=noninteractive add-apt-repository "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -sc)-pgdg main" && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && apt-get install -y postgresql-9.6 postgresql-contrib-9.6 postgresql-9.6-postgis-2.4 \
+postgresql-9.6-repac
+
+RUN npm config set strict-ssl false
+
+RUN npm install -g npm@4.0.2
+
+RUN curl -sL https://deb.nodesource.com/setup_6.x -o nodesource_setup.sh \
+&& bash nodesource_setup.sh && apt-get install -y nodejs && apt-get install -y \
+build-essential
+
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub \
+| apt-key add - && sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ \
+stable main" >> /etc/apt/sources.list.d/google.list' && apt-get update -y \
+&& apt-get install google-chrome-stable -y
+
+RUN wget -N https://chromedriver.storage.googleapis.com/2.33/chromedriver_linux64.zip -P /home/devel && \
+unzip /home/devel/chromedriver_linux64.zip -d /home/devel && \
+chmod +x /home/devel/chromedriver && rm /home/devel/chromedriver_linux64.zip && \
+cp /home/devel/chromedriver /usr/bin/chromedriver
+
 COPY . /usr/src/app
 CMD ["/sbin/my_init"]
