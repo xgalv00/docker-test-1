@@ -113,6 +113,7 @@ deployments:
         docker: true
         options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
   dockerQ:
+    ready_wait: 10
     filename:
       ./stuff/DockerfileQ
     context_path: ./stuff
