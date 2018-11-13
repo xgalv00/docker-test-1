@@ -116,6 +116,9 @@ deployments:
     filename:
       ./stuff/DockerfileQ
     context_path: ./stuff
+  branchCompose:
+    filename:
+      ./docker-compose.yml
   nodocker:
     dockerimage:
       r.cfcr.io/wisedrette/wisedrette/dockertest:master
