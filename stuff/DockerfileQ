@@ -1,5 +1,4 @@
 FROM phusion/baseimage:0.10.1
-MAINTAINER Unhaggle Dev Team <team.unhaggle@pixbuffer.com>
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && apt-get install -y \
 wget gettext git libfreetype6-dev libjpeg8-dev liblcms2-dev libpq-dev libsqlite3-dev \
