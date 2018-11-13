@@ -20,5 +20,10 @@ RUN DEBIAN_FRONTEND=noninteractive add-apt-repository "deb http://apt.postgresql
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && apt-get install -y postgresql-9.6 postgresql-contrib-9.6 postgresql-9.6-postgis-2.4 \
 postgresql-9.6-repac
 
+RUN npm config set strict-ssl false
+
+RUN npm install -g npm@4.0.2
+
+
 COPY . /usr/src/app
 CMD ["/sbin/my_init"]
