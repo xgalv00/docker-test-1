@@ -17,6 +17,8 @@ echo "devel ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
 usermod -p '*' devel && chmod 777 /var/run && chmod 777 /var/log
 
 RUN DEBIAN_FRONTEND=noninteractive add-apt-repository "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -sc)-pgdg main" && wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && apt-get install -y postgresql-9.6 postgresql-contrib-9.6 postgresql-9.6-postgis-2.4 \
+postgresql-9.6-repac
 
 COPY . /usr/src/app
 CMD ["/sbin/my_init"]
