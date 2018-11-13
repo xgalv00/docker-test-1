@@ -38,5 +38,7 @@ unzip /home/devel/chromedriver_linux64.zip -d /home/devel && \
 chmod +x /home/devel/chromedriver && rm /home/devel/chromedriver_linux64.zip && \
 cp /home/devel/chromedriver /usr/bin/chromedriver
 
+RUN chmod 777 /var/run && chmod 777 /var/log
+
 COPY . /usr/src/app
 CMD ["/sbin/my_init"]
