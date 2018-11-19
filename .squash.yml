@@ -10,28 +10,12 @@ deployments:
       - test--test:81
       - another-test:8000
       - and--another-test:8000
-    pre_terminate:
-      - uname -a
-      - ./src/scripts/script-2.sh
-      - stuff-service:
-        - cat ~/.bashrc
-    post_launch:
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo domain is $SQUASH_DOMAIN'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo branch id is $SQUASH_BRANCH_WITH_ID'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL2 is $TEST_VAL2'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
+    deployment_page_commands:
+      - list something:
+        - ls -la ./
+        - echo branch id is $SQUASH_BRANCH_WITH_ID
+      - echo awesome:
+        - echo awesome
   branch:
     vm_size: 1
     environment:
