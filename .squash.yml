@@ -13,7 +13,7 @@ deployments:
     deployment_page_commands:
       list something:
         - ls -la ./
-        - echo branch id is $SQUASH_BRANCH_WITH_ID
+        - sleep 40 && echo branch id is $SQUASH_BRANCH_WITH_ID
       echo awesome:
         - echo awesome
       echo target:
