@@ -5,16 +5,11 @@ deployments:
       - DEBIAN_FRONTEND=noninteractive apt-get update
       - DEBIAN_FRONTEND=noninteractive apt-get install -y software-properties-common
       - DEBIAN_FRONTEND=noninteractive add-apt-repository ppa:ubuntugis/ubuntugis-unstable
-      - DEBIAN_FRONTEND=noninteractive apt-get install -y python python-dev python3.5 python3.5-dev python-pip \
-      python-virtualenv libssl-dev libpq-dev git ssh mercurial build-essential libfontconfig1 libfontconfig1-dev \
-      locales gcc postgresql postgis postgresql-contrib postgresql-9.3-postgis-2.1 openjdk-6-jre-headless sudo
+      - DEBIAN_FRONTEND=noninteractive apt-get install -y python python-dev python3.5 python3.5-dev python-pip python-virtualenv libssl-dev libpq-dev git ssh mercurial build-essential libfontconfig1 libfontconfig1-dev locales gcc postgresql postgis postgresql-contrib postgresql-9.3-postgis-2.1 openjdk-6-jre-headless sudo
       - COPY . /code
       - cd /code
       - bash ./create_venv.sh
-      - service postgresql start && sudo -u postgres psql -U postgres -c "CREATE DATABASE teckno" && \
-      sudo -u postgres psql -U postgres -d teckno -f /usr/share/postgresql/9.3/contrib/postgis-2.1/postgis.sql && \
-      sudo -u postgres psql -U postgres -d teckno -f /usr/share/postgresql/9.3/contrib/postgis-2.1/spatial_ref_sys.sql && \
-      sudo -u postgres psql -U postgres -d teckno -c "GRANT ALL ON geometry_columns TO PUBLIC;" && sudo -u postgres psql -U postgres -d teckno -c "GRANT ALL ON spatial_ref_sys TO PUBLIC;"
+      - service postgresql start && sudo -u postgres psql -U postgres -c "CREATE DATABASE teckno" && sudo -u postgres psql -U postgres -d teckno -f /usr/share/postgresql/9.3/contrib/postgis-2.1/postgis.sql && sudo -u postgres psql -U postgres -d teckno -f /usr/share/postgresql/9.3/contrib/postgis-2.1/spatial_ref_sys.sql && sudo -u postgres psql -U postgres -d teckno -c "GRANT ALL ON geometry_columns TO PUBLIC;" && sudo -u postgres psql -U postgres -d teckno -c "GRANT ALL ON spatial_ref_sys TO PUBLIC;"
       - tar -xvzf tkq-dev-db-dump-nov-2017.sql.tar.gz && service postgresql start && sleep 15 && sudo -u postgres psql teckno < tkq-dev-db-dump-nov-2017.sql
       - mv ./jetty.xml ./solr/jetty.xml
       - mv ./solr-init.sh ./solr/solr-init.sh
