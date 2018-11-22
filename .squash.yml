@@ -1,116 +1,40 @@
 deployments:
   default:
-    vm_size: 1G
-    environment:
-      TEST_VAL=42
-    ready_wait: 120
-    backend_wait: 20
-    subdomain_port_mapping:
-      - test:81
-      - test--test:81
-      - another-test:8000
-      - and--another-test:8000
-    deployment_page_commands:
-      list something:
-        - ls -la ./
-        - sleep 40 && echo branch id is $SQUASH_BRANCH_WITH_ID
-      echo awesome:
-        - echo awesome
-      echo target:
-        stuff-service:
-          - echo awesome
-  branch:
-    vm_size: 1
-    environment:
-      TEST_VAL=42
-    ready_wait:
-      120
-    filename:
-      ./stuff/Dockerfile
-    dockerfileonly: true
-    run_options: --env TEST_VAL2=${SQUASH_BRANCH_WITH_ID}
-    context_path: ./stuff
-    subdomains:
-      Awesome Name:
-        - awesomedomain,/?que=99764QQ
-      Awesomness x2:
-         - subd,/abc
-      Awesomness x3:
-         - plain
-    pre_launch:
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo domain is $SQUASH_DOMAIN'
-    post_launch:
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo domain is $SQUASH_DOMAIN'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo branch id is $SQUASH_BRANCH_WITH_ID'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL2 is $TEST_VAL2'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
-  branchA:
-    vm_size: 6
-    environment:
-      TEST_VAL=4242
-    ready_wait:
-      120
-    filename:
-      ./stuff/DockerfileA
-    dockerfileonly: true
-    run_options: --env TEST_VAL2=43
-    context_path: ./stuff
-    post_launch:
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL2 is $TEST_VAL2'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
-  branchB:
-    vm_size: 8GB
-    environment:
-      TEST_VAL=424242
-    ready_wait:
-      120
-    filename:
-      ./stuff/DockerfileB
-    dockerfileonly: true
-    run_options: --env TEST_VAL2=${SQUASH_DOMAIN}
-    context_path: ./stuff
-    post_launch:
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL2 is $TEST_VAL2'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
-  dockerQ:
-    ready_wait: 10
-    filename:
-      ./stuff/DockerfileQ
-    context_path: ./stuff
-  branchCompose:
-    filename:
-      ./docker-compose.yml
-  nodocker:
-    dockerimage:
-      r.cfcr.io/wisedrette/wisedrette/dockertest:master
-    docker_registry:
-      server: r.cfcr.io
-      username: wisedrette
-      password: $REGISTRY_PASSWORD
+    dockerimage: ubuntu:14.04
+    build_steps:
+      - DEBIAN_FRONTEND=noninteractive apt-get update
+      - DEBIAN_FRONTEND=noninteractive apt-get install -y software-properties-common
+      - DEBIAN_FRONTEND=noninteractive add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+      - DEBIAN_FRONTEND=noninteractive apt-get install -y python python-dev python3.5 python3.5-dev python-pip \
+      python-virtualenv libssl-dev libpq-dev git ssh mercurial build-essential libfontconfig1 libfontconfig1-dev \
+      locales gcc postgresql postgis postgresql-contrib postgresql-9.3-postgis-2.1 openjdk-6-jre-headless sudo
+      - COPY . /code
+      - cd /code
+      - bash ./create_venv.sh
+      - service postgresql start && sudo -u postgres psql -U postgres -c "CREATE DATABASE teckno" && \
+      sudo -u postgres psql -U postgres -d teckno -f /usr/share/postgresql/9.3/contrib/postgis-2.1/postgis.sql && \
+      sudo -u postgres psql -U postgres -d teckno -f /usr/share/postgresql/9.3/contrib/postgis-2.1/spatial_ref_sys.sql && \
+      sudo -u postgres psql -U postgres -d teckno -c "GRANT ALL ON geometry_columns TO PUBLIC;" && sudo -u postgres psql -U postgres -d teckno -c "GRANT ALL ON spatial_ref_sys TO PUBLIC;"
+      - tar -xvzf tkq-dev-db-dump-nov-2017.sql.tar.gz && service postgresql start && sleep 15 && sudo -u postgres psql teckno < tkq-dev-db-dump-nov-2017.sql
+      - mv ./jetty.xml ./solr/jetty.xml
+      - mv ./solr-init.sh ./solr/solr-init.sh
+      - WORKDIR /
+      - wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/redis/redis-2.6.7.tar.gz
+      - tar xzf redis-2.6.7.tar.gz
+      - WORKDIR /redis-2.6.7
+      - make
+    launch_steps:
+      - /redis-2.6.7/src/redis-server redis.conf&
+      - /code/solr/solr-init.sh start
+      - mkdir -p /code/logs
+      - touch /code/logs/django.log
+      - bash /code/run_server.sh
+    port_forwarding: 80:8000
+    copy_files:
+      - /assets/local_settings.py ~/code/tkq/local_settings.py
+      - /assets/jetty.xml ~/code/jetty.xml
+      - /assets/solr-init.sh ~/code/solr-init.sh
+      - /assets/media.tar.gz ~/code/media.tar.gz
+      - /assets/covers.tar.gz ~/code/covers.tar.gz
+      - /assets/tkq-live-solr-dump.tar.gz ~/code/tkq-live-solr-dump.tar.gz
+      - /assets/tkq-dev-db-dump-nov-2017.sql.tar.gz ~/code/tkq-dev-db-dump-nov-2017.sql.tar.gz
