@@ -22,7 +22,7 @@ deployments:
           - echo awesome
   branch:
     vm_size: 1
-    vm_storage_gb: 18
+    vm_storage_gb: 19
     environment:
       TEST_VAL=42
     ready_wait:
