@@ -10,6 +10,12 @@ deployments:
       - test--test:81
       - another-test:8000
       - and--another-test:8000
+    subdomains:
+      Awesome Name:
+        - test,/about
+        - awesomedomain,/?que=99764QQ
+      Awesomness x3:
+        - plain
     deployment_page_commands:
       list something:
         - ls -la ./
@@ -34,9 +40,9 @@ deployments:
       Awesome Name:
         - awesomedomain,/?que=99764QQ
       Awesomness x2:
-         - subd,/abc
+        - subd,/abc
       Awesomness x3:
-         - plain
+        - plain
     deployment_page_commands:
       list something:
         - ls -la ./
