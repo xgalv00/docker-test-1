@@ -17,7 +17,7 @@ def activate_job():
     thread.start()
 
 
-@app.route('/')
+@app.route('/test/')
 def index():
     logging.warning(request.referrer)
     return '<body>Hello world. <a href="/about/">About this page</a>.</body>'
