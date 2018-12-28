@@ -1,6 +1,6 @@
 deployments:
   default:
-    vm_size: 1G
+    vm_size: 2G
     environment:
       TEST_VAL=42
     ready_wait: 120
