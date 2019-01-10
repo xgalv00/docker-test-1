@@ -1,4 +1,4 @@
 #!/bin/bash
 
-chown -R 1010:1010 /assets
+chown -R 1009:1009 /assets
 python server.py
