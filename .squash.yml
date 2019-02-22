@@ -6,6 +6,7 @@ deployments:
       TEST_VAL=42
     ready_wait: 120
     backend_wait: 20
+    copy_files: /abcd ~/code
     subdomain_port_mapping:
       - test:81
       - test--test:81
