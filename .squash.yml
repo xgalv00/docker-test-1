@@ -31,7 +31,7 @@ deployments:
     filename:
       ./stuff/Dockerfile
     dockerfileonly: true
-    run_options: --env TEST_VAL2=${SQUASH_BRANCH_WITH_ID} -v /assets:/assets
+    run_options: --env TEST_VAL2=${SQUASH_BRANCH_WITH_ID}
     context_path: ./stuff
     subdomains:
       Awesome Name:
