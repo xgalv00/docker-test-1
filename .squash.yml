@@ -24,6 +24,7 @@ deployments:
   branch:
     vm_size: 1
     vm_storage_gb: 16
+    deployment_type: kubernetes
     environment:
       TEST_VAL=42
     ready_wait:
@@ -44,28 +45,6 @@ deployments:
       list something:
         - ls -la ./
         - sleep 40 && echo branch id is $SQUASH_BRANCH_WITH_ID
-    pre_launch:
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo domain is $SQUASH_DOMAIN'
-    post_launch:
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo domain is $SQUASH_DOMAIN'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo branch id is $SQUASH_BRANCH_WITH_ID'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL2 is $TEST_VAL2'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
   branchA:
     vm_size: 6
     environment:
