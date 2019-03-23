@@ -7,6 +7,7 @@ deployments:
     ready_wait: 120
     backend_wait: 20
     copy_files: /abcd ~/code
+    check_root_url: true
     subdomain_port_mapping:
       - test:81
       - test--test:81
