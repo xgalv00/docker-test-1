@@ -33,7 +33,7 @@ deployments:
     filename:
       ./stuff/Dockerfile
     dockerfileonly: true
-    run_options: --env TEST_VAL2=${SQUASH_BRANCH_WITH_ID}
+    run_options: --env TEST_VAL2=${SQUASH_BRANCH_WITH_ID} --restart always
     context_path: ./stuff
     subdomains:
       Awesome Name:
