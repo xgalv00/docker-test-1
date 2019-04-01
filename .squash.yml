@@ -22,9 +22,9 @@ deployments:
       echo target:
         stuff-service:
           - echo awesome
-  branch:
+  /PI:
     vm_size: 1
-    vm_storage_gb: 16
+    vm_storage_gb: 130
     deployment_type: kubernetes
     environment:
       TEST_VAL=42
