@@ -8,7 +8,6 @@ services:
       - TEST_VAL
       - SQUASH_BRANCH_WITH_ID
       - SQUASH_DOMAIN
-    auto_deploy_on_commits: true
-    squash_pr_comments: true
+    command: bash ./run_server.sh
     volumes:
       - /assets:/assets
