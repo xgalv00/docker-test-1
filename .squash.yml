@@ -8,6 +8,8 @@ deployments:
     backend_wait: 20
     copy_files: /abcd ~/code
     check_root_url: true
+    auto_deploy_on_commits: true
+    squash_pr_comments: true    
     subdomain_port_mapping:
       - test:81
       - test--test:81
