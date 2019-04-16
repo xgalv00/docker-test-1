@@ -10,5 +10,6 @@ services:
       - SQUASH_DOMAIN
     command: bash ./run_server.sh
     auto_deploy_on_commits: true
+    squash_pr_comments: true
     volumes:
       - /assets:/assets
