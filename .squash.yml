@@ -4,7 +4,7 @@ deployments:
     vm_storage_gb: 10G
     ready_wait: 120
     backend_wait: 2
-    depend_on:
+    depends_on:
       - docker-test/master
     auto_deploy_on_commits: true
     squash_pr_comments: true    
