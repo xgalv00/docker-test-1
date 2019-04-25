@@ -9,7 +9,7 @@ services:
       - SQUASH_BRANCH_WITH_ID
       - SQUASH_DOMAIN
       - SQUASH_MASTER_DEPLOYMENT
-      - SQUASH_CHILD_DEPLOYMENT_DOCKER_TEST_MASTER      
+      - SQUASH_CHILD_DEPLOYMENT
     command: bash ./run_server.sh
     volumes:
       - /assets:/assets
