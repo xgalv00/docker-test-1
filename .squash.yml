@@ -6,6 +6,7 @@ deployments:
     backend_wait: 40
     depends_on:
       - docker-test/master
+      - docker-test/master-dependency
     depends_on_match_branch: true
   docker:
     vm_size: 1
