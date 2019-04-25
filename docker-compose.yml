@@ -8,6 +8,8 @@ services:
       - TEST_VAL
       - SQUASH_BRANCH_WITH_ID
       - SQUASH_DOMAIN
+      - SQUASH_MASTER_DEPLOYMENT
+      - SQUASH_CHILD_DEPLOYMENT_DOCKER_TEST_MASTER      
     command: bash ./run_server.sh
     volumes:
       - /assets:/assets
