@@ -1,9 +1,17 @@
 from flask import Flask, request
+from elasticapm.contrib.flask import ElasticAPM
+import os
 import threading
 import time
 import logging
 
 app = Flask(__name__)
+app.config['ELASTIC_APM'] = {
+  'SERVICE_NAME': 'test-service',
+  'SECRET_TOKEN': os.environ.get('APM_SECRET_TOKEN', ''),
+  'SERVER_URL': os.environ.get('APM_SERVER_URL', ''),
+}
+apm = ElasticAPM(app)
 
 
 @app.before_first_request

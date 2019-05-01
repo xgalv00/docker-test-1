@@ -2,40 +2,23 @@ deployments:
   default:
     vm_size: 1G
     vm_storage_gb: 10G
-    environment:
-      TEST_VAL=42
     ready_wait: 120
     backend_wait: 20
     copy_files: /abcd ~/code
-    check_root_url: true
-    auto_deploy_on_commits: true
-    squash_pr_comments: true    
     subdomain_port_mapping:
       - test:81
       - test--test:81
       - another-test:8000
       - and--another-test:8000
-    deployment_page_commands:
-      list something:
-        - ls -la ./
-        - sleep 40 && echo branch id is $SQUASH_BRANCH_WITH_ID
-      echo awesome:
-        - echo awesome
-      echo target:
-        stuff-service:
-          - echo awesome
-  /PI:
+  branch:
     vm_size: 1
-    vm_storage_gb: 130
-    deployment_type: kubernetes
-    environment:
-      TEST_VAL=42
+    vm_storage_gb: 13
     ready_wait:
       120
     filename:
       ./stuff/Dockerfile
     dockerfileonly: true
-    run_options: --env TEST_VAL2=${SQUASH_BRANCH_WITH_ID} --restart always
+    run_options: --env APM_SECRET_TOKEN=${APM_SECRET_TOKEN} APM_SERVER_URL=${APM_SERVER_URL} --restart always
     context_path: ./stuff
     subdomains:
       Awesome Name:
@@ -44,61 +27,10 @@ deployments:
          - subd,/abc
       Awesomness x3:
          - plain
-    deployment_page_commands:
-      list something:
-        - ls -la ./
-        - sleep 40 && echo branch id is $SQUASH_BRANCH_WITH_ID
-  branchA:
-    vm_size: 6
-    environment:
-      TEST_VAL=4242
-    ready_wait:
-      120
-    filename:
-      ./stuff/DockerfileA
-    dockerfileonly: true
-    run_options: --env TEST_VAL2=43
-    context_path: ./stuff
-    post_launch:
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL2 is $TEST_VAL2'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
-  branchB:
-    vm_size: 8GB
-    environment:
-      TEST_VAL=424242
-    ready_wait:
-      120
-    filename:
-      ./stuff/DockerfileB
-    dockerfileonly: true
-    run_options: --env TEST_VAL2=${SQUASH_DOMAIN}
-    context_path: ./stuff
-    post_launch:
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL2 is $TEST_VAL2'
-      - target: 'stuff-service'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
-  dockerQ:
-    ready_wait: 10
-    filename:
-      ./stuff/DockerfileQ
-    context_path: ./stuff
-  branchCompose:
-    filename:
-      ./docker-compose.yml
   nodocker:
     dockerimage:
       r.cfcr.io/wisedrette/wisedrette/dockertest:master
+    run_options: --env APM_SECRET_TOKEN=${APM_SECRET_TOKEN} APM_SERVER_URL=${APM_SERVER_URL}
     docker_registry:
       server: r.cfcr.io
       username: wisedrette
