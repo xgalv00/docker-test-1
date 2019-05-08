@@ -5,7 +5,6 @@ services:
     ports:
       - 80:80
     environment:
-      - TEST_VAL
       - SQUASH_BRANCH_WITH_ID
       - SQUASH_DOMAIN
       - SQUASH_MASTER_DEPLOYMENT      
