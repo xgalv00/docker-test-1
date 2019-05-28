@@ -1,0 +1,9 @@
+deployments:
+  default:
+    vm_size: 1G
+    vm_storage_gb: 10G
+    filename: ./stuff/Dockerfile
+    context_path: ./stuff
+  compose:
+    vm_size: 1G
+    vm_storage_gb: 10G
