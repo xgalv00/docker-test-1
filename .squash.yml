@@ -10,7 +10,7 @@ deployments:
     check_root_url: true
     auto_deploy_on_commits: true
     squash_pr_comments: true
-    allow_traffic_ports: 8080,3000
+    allow_traffic_ports: 8080,80
     subdomain_port_mapping:
       - test:81
       - test--test:81
