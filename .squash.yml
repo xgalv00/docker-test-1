@@ -9,7 +9,8 @@ deployments:
     copy_files: /abcd ~/code
     check_root_url: true
     auto_deploy_on_commits: true
-    squash_pr_comments: true    
+    squash_pr_comments: true
+    allow_traffic_ports: 8080,3000
     subdomain_port_mapping:
       - test:81
       - test--test:81
