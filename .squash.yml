@@ -15,18 +15,17 @@ deployments:
     vm_size: 1
     vm_storage_gb: 13
     auto_deploy_disable_cache: true
-    auto_deploy_on_commits: true
+    auto_deploy_on_commits: false
     ready_wait: 120
     filename: ./stuff/Dockerfile
     dockerfileonly: true
     context_path: ./stuff
   nodocker:
     auto_deploy_disable_cache: true
-    auto_deploy_on_commits: true
+    auto_deploy_on_commits: false
     dockerimage:
       r.cfcr.io/wisedrette/wisedrette/dockertest:master
     docker_registry:
       server: r.cfcr.io
       username: wisedrette
       password: $REGISTRY_PASSWORD
-
