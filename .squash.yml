@@ -6,7 +6,11 @@ deployments:
     copy_files: /abcd ~/code
     auto_deploy_disable_cache: true
     auto_deploy_on_commits: true
-    squash_pr_comments: true    
+    squash_pr_comments: true
+    auto_deploy_post_launch_commands:
+      default:
+        - false
+        - true
   branch:
     vm_size: 1
     vm_storage_gb: 13
