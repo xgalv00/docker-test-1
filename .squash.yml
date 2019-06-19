@@ -1,5 +1,4 @@
 deployments:
-  branchCompose:
+  newBranch:
     filename: ./docker-compose.yml
-
 
