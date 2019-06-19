@@ -1,5 +1,5 @@
 deployments:
   newBranch:
     filename: ./docker-compose.yml
-  newBranch:
+  newNewBranch:
     filename: ./docker-compose.yml
