@@ -3,6 +3,6 @@ deployments:
     filename: ./docker-compose.yml
   aBranch:
     filename: ./docker-compose.yml
-  a Branch:
+  a,Branch:
     filename: ./docker-compose.yml
 
