@@ -22,10 +22,11 @@ deployments:
     context_path: ./stuff
   nodocker:
     auto_deploy_disable_cache: true
-    auto_deploy_on_commits: false
+    auto_deploy_on_commits: true
     dockerimage:
       r.cfcr.io/wisedrette/wisedrette/dockertest:master
     docker_registry:
       server: r.cfcr.io
       username: wisedrette
       password: $REGISTRY_PASSWORD
+
