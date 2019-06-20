@@ -22,7 +22,7 @@ deployments:
     context_path: ./stuff
   nodocker:
     auto_deploy_disable_cache: true
-    auto_deploy_on_commits: true
+    auto_deploy_on_commits: false
     dockerimage:
       r.cfcr.io/wisedrette/wisedrette/dockertest:master
     docker_registry:
