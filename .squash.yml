@@ -10,9 +10,9 @@ deployments:
     auto_deploy_post_launch_commands:
       default:
         - false
-        - true    
+        - 'true'
       another_command:
-        - true      
+        - 'true'     
   branch:
     vm_size: 1
     vm_storage_gb: 13
