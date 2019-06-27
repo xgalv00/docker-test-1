@@ -10,7 +10,7 @@ deployments:
     auto_deploy_post_launch_commands:
       default:
         - echo true
-        - python stuff/selenium_test.py
+        - python ./selenium_test.py
   branch:
     vm_size: 1
     vm_storage_gb: 13
