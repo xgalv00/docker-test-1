@@ -1,4 +1,4 @@
-FROM python:3.6-onbuild
+FROM joyzoursky/python-chromedriver:3.6-selenium
 
 COPY . /usr/src/app
 WORKDIR /usr/src/app
