@@ -13,7 +13,7 @@ chrome_options.add_argument('--disable-gpu')
 driver = webdriver.Chrome(chrome_options=chrome_options)
 driver.get('https://{}'.format(os.environ.get('SQUASH_DOMAIN', '')))
 try:
-    driver.find_element_by_id("ID")
+    driver.find_element_by_xpath("//body[contains(text(), 'Hello')]")
     driver.close()
     sys.exit(0)
 except NoSuchElementException:
