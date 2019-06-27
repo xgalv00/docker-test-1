@@ -9,10 +9,8 @@ deployments:
     squash_pr_comments: true
     auto_deploy_post_launch_commands:
       default:
-        - false
         - echo true
-      another_command:
-        - echo true  
+        - python stuff/selenium_test.py
   branch:
     vm_size: 1
     vm_storage_gb: 13
