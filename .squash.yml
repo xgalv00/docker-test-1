@@ -7,7 +7,7 @@ deployments:
       - SOMETHING=$SQUASH_BRANCH_WITH_ID
     ready_wait: 120
     backend_wait: 20
-    copy_files: /abcd ~/code
+    copy_files: /$TEST_VAL ~/code
     auto_deploy_on_commits: true
     squash_pr_comments: true
     allow_traffic_ports: 8080,80
