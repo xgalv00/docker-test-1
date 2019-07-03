@@ -59,8 +59,14 @@ deployments:
     filename:
       ./stuff/DockerfileA
     dockerfileonly: true
-    run_options: --env TEST_VAL2=43
+    build_options: --build-ard TEST_VAL
+    run_options: --env TEST_VAL2=43 --env TEST_VAL3=$SQUASH_BRANCH_WITH_ID
     context_path: ./stuff
+    pre_launch:
+      - target: 'stuff-service'
+        command: exec
+        docker: true
+        options: -it {target} bash -c 'env > .env.local'
     post_launch:
       - target: 'stuff-service'
         command: exec
