@@ -39,11 +39,6 @@ deployments:
     build_options: --build-arg TEST_VAL2 --build-arg TEST_VAL
     run_options: --env TEST_VAL2=${SQUASH_BRANCH_WITH_ID} --restart always
     context_path: ./stuff
-    pre_launch:
-      - target: 'docker'
-        command: exec
-        docker: true
-        options: -it {target} bash -c 'env > .env.local'
     subdomains:
       Awesome Name:
         - awesomedomain,/?que=99764QQ
