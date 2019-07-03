@@ -50,7 +50,7 @@ deployments:
       list something:
         - ls -la ./
         - sleep 40 && echo branch id is $SQUASH_BRANCH_WITH_ID
-  branchA:
+  branch-A:
     vm_size: 6
     environment:
       TEST_VAL=4242
