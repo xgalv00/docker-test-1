@@ -11,6 +11,7 @@ deployments:
     auto_deploy_on_commits: true
     squash_pr_comments: true
     allow_traffic_ports: 8080,80
+    build_options: --build-arg SOMETHING=$SQUASH_BRANCH
     subdomain_port_mapping:
       - test:81
       - test--test:81
