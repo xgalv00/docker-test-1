@@ -36,6 +36,7 @@ deployments:
     filename:
       ./stuff/Dockerfile
     dockerfileonly: true
+    build_options: --build-arg TEST_VAL2 --build-arg TEST_VAL
     run_options: --env TEST_VAL2=${SQUASH_BRANCH_WITH_ID} --restart always
     context_path: ./stuff
     subdomains:
