@@ -40,7 +40,7 @@ deployments:
     run_options: --env TEST_VAL2=${SQUASH_BRANCH_WITH_ID} --restart always
     context_path: ./stuff
     pre_launch: 
-      - "cat env > .env.local"
+      - "env > .env.local"
     subdomains:
       Awesome Name:
         - awesomedomain,/?que=99764QQ
