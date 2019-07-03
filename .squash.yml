@@ -77,7 +77,7 @@ deployments:
         docker: true
         options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
   branchB:
-    vm_size: 8GB
+    vm_size: 1GB
     environment:
       TEST_VAL=424242
     ready_wait:
@@ -87,6 +87,11 @@ deployments:
     dockerfileonly: true
     run_options: --env TEST_VAL2=${SQUASH_DOMAIN}
     context_path: ./stuff
+    pre_launch:
+      - target: 'stuff-service'
+        command: exec
+        docker: true
+        options: -it {target} bash -c 'env > .env.local'
     post_launch:
       - target: 'stuff-service'
         command: exec
