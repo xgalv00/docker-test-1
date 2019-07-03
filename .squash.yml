@@ -3,11 +3,11 @@ deployments:
     vm_size: 1G
     vm_storage_gb: 10G
     environment:
-      TEST_VAL=42
+      - TEST_VAL=42
+      - SOMETHING=$SQUASH_BRANCH_WITH_ID
     ready_wait: 120
     backend_wait: 20
     copy_files: /abcd ~/code
-    check_root_url: true
     auto_deploy_on_commits: true
     squash_pr_comments: true
     allow_traffic_ports: 8080,80
@@ -37,7 +37,7 @@ deployments:
       ./stuff/Dockerfile
     dockerfileonly: true
     build_options: --build-arg TEST_VAL2 --build-arg TEST_VAL
-    run_options: --env TEST_VAL2=${SQUASH_BRANCH_WITH_ID} --restart always
+    run_options: --env TEST_VAL2=$SQUASH_BRANCH_WITH_ID --restart always
     context_path: ./stuff
     subdomains:
       Awesome Name:
@@ -85,7 +85,7 @@ deployments:
     filename:
       ./stuff/DockerfileB
     dockerfileonly: true
-    run_options: --env TEST_VAL2=${SQUASH_DOMAIN}
+    run_options: --env TEST_VAL2=$SQUASH_DOMAIN
     context_path: ./stuff
     pre_launch:
       - target: branchB
