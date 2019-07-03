@@ -28,7 +28,7 @@ deployments:
   /PI:
     vm_size: 1
     vm_storage_gb: 130
-    deployment_type: kubernetes
+    deployment_type: docker
     environment:
       TEST_VAL=42
     ready_wait:
