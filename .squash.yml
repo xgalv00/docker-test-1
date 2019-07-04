@@ -102,7 +102,7 @@ deployments:
         command: exec
         docker: true
         options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
-  dockerQ:
+  docker Q:
     ready_wait: 10
     filename:
       ./stuff/DockerfileQ
