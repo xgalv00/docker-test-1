@@ -77,7 +77,7 @@ deployments:
         command: exec
         docker: true
         options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
-  branchB:
+  branch_B:
     vm_size: 1GB
     environment:
       TEST_VAL=424242
