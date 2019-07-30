@@ -2,7 +2,7 @@ deployments:
   default:
     vm_size: 1G
     vm_storage_gb: 10G
-    ready_wait: 120
+    ready_wait: 20
     some_field: 123
     backend_wait: abc
     environment:
