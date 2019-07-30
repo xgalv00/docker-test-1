@@ -12,7 +12,6 @@ deployments:
     copy_files: /${TEST_VAL}ABC ~/code
     auto_deploy_on_commits: true     adas
     squash_pr_comments: true   asd
-    allow_traffic_ports: abc
     build_options: --build-arg SOMETHING=$SQUASH_BRANCH
     subdomain_port_mapping:
       - test:81
