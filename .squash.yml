@@ -32,7 +32,7 @@ deployments:
       - target: stuff-service
         command: exec
         docker: false
-        options: -T {target} bash -c 'echo TEST_VAL2 is $TEST_VAL2'
+        options: "{target} bash -c 'echo TEST_VAL2 is $TEST_VAL2'"
   /PI:
     vm_size: 1
     vm_storage_gb: 130
