@@ -5,6 +5,7 @@ deployments:
     ready_wait: 20
     some_field: 123
     backend_wait: abc
+    
     environment:
       - TEST_VAL=42
       - SOMETHING=${SQUASH_BRANCH_WITH_ID}ABC
@@ -39,7 +40,7 @@ deployments:
       ./stuff/Dockerfile
     dockerfileonly: true
     build_options: --build-arg TEST_VAL2 --build-arg TEST_VAL
-    run_options: --env TEST_VAL2=$SQUASH_BRANCH_WITH_ID --restart always
+    run_options: --hostname ${SQUASH_BRANCH_WITH_ID} --env TEST_VAL2=$SQUASH_BRANCH_WITH_ID --restart always
     context_path: ./stuff
     subdomains:
       Awesome Name:
