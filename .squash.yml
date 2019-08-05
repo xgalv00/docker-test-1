@@ -5,7 +5,7 @@ deployments:
     ready_wait: 20
     some_field: 123
     backend_wait: abc
-    
+    dc_skip_docker_build: false
     environment:
       - TEST_VAL=42
       - SOMETHING=${SQUASH_BRANCH_WITH_ID}ABC
