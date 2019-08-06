@@ -28,6 +28,10 @@ deployments:
       echo target:
         stuff-service:
           - echo awesome
+    pre_launch:
+      - target: stuff-service
+        command: run
+        options: "{target} bash -c 'ls -la ./'"
     post_launch:
       - target: stuff-service
         command: exec
@@ -76,13 +80,13 @@ deployments:
         options: -it {target} bash -c 'env > .env.local'
     post_launch:
       - target: branchA
-        command: exec
+        command: cp
         docker: true
-        options: -it {target} bash -c 'echo TEST_VAL2 is $TEST_VAL2'
+        options: ".ssh/id_rsa {target}:/test"
       - target: branchA
         command: exec
         docker: true
-        options: -it {target} bash -c 'echo TEST_VAL is $TEST_VAL'
+        options: "-it {target} bash -c 'echo TEST_VAL is $TEST_VAL'"
   branch_B:
     vm_size: 1GB
     environment:
