@@ -74,17 +74,15 @@ deployments:
     run_options: --env TEST_VAL2=43 --env TEST_VAL3=$SQUASH_BRANCH_WITH_ID
     context_path: ./stuff
     pre_launch:
-      - target: branchA
+      - command: cp
+        docker: true
+        options: ".ssh/id_rsa {target}:/test"
+      - target: deploy_image
         command: exec
         docker: true
         options: -it {target} bash -c 'env > .env.local'
     post_launch:
-      - target: branchA
-        command: cp
-        docker: true
-        options: ".ssh/id_rsa {target}:/test"
-      - target: branchA
-        command: exec
+      - command: exec
         docker: true
         options: "-it {target} bash -c 'echo TEST_VAL is $TEST_VAL'"
   branch_B:
