@@ -116,6 +116,14 @@ deployments:
       ./stuff/DockerfileQ
     context_path: ./stuff
   branchCompose:
+    pre_launch:
+      - target: stuff-service
+        command: exec
+        options: "{target} bash -c 'ls -la ./'"
+    post_launch:
+      - target: stuff-service
+        command: run
+        options: '{target} bash -c "echo test && echo test > test"'
     filename:
       ./docker-compose.yml
   nodocker:
