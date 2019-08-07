@@ -34,8 +34,8 @@ deployments:
         options: "{target} bash -c 'ls -la ./'"
     post_launch:
       - target: stuff-service
-        command: exec
-        options: "{target} bash -c 'echo TEST_VAL is $TEST_VAL' && ls -la ./"
+        command: run
+        options: '{target} bash -c "echo TEST_VAL is $TEST_VAL"'
   /PI:
     vm_size: 1
     vm_storage_gb: 130
