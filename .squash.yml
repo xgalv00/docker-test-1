@@ -123,7 +123,7 @@ deployments:
     post_launch:
       - target: stuff-service
         command: run
-        options: "{target} bash -c 'echo test && echo test > test'"
+        options: '{target} bash -c "echo test && echo test > test"'
     filename:
       ./docker-compose.yml
   nodocker:
