@@ -35,7 +35,7 @@ deployments:
     post_launch:
       - target: stuff-service
         command: run
-        options: '{target} bash -c "echo test && echo test > test"'
+        options: "{target} bash -c 'echo test && echo test > test'"
   /PI:
     vm_size: 1
     vm_storage_gb: 130
