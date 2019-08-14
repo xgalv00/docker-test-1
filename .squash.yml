@@ -34,7 +34,7 @@ deployments:
         options: "{target} bash -c 'ls -la ./'"
     post_launch:
       - target: stuff-service
-        command: run
+        command: exec
         options: "{target} bash -c 'echo test && echo test > test'"
   /PI:
     vm_size: 1
