@@ -9,6 +9,8 @@ services:
       - TEST_VAL
       - TEST_VAL2
       - TEST
+      - TEST1
+      - TEST2
       - SQUASH_BRANCH_WITH_ID
       - SQUASH_DOMAIN
       - SQUASH_MASTER_DEPLOYMENT
