@@ -43,14 +43,14 @@ deployments:
     vm_storage_gb: 130
     deployment_type: docker
     environment:
-      TEST_VAL=42
+      TEST_VAL=a42
     ready_wait:
       120
     filename:
       ./stuff/Dockerfile
     dockerfileonly: true
     build_options: --build-arg TEST_VAL2 --build-arg TEST_VAL
-    run_options: --hostname ${SQUASH_BRANCH_WITH_ID} --env TEST_VAL2=$SQUASH_BRANCH_WITH_ID --restart always
+    run_options: --hostname ${SQUASH_BRANCH_WITH_ID} --env TEST_VAL2=$SQUASH_BRANCH_WITH_ID --restart always --env ${TEST_VAL}=test
     context_path: ./stuff
     subdomains:
       Awesome Name:
