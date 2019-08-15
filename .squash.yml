@@ -7,10 +7,10 @@ deployments:
     backend_wait: abc
     dc_skip_docker_build: false
     environment:
-      - TEST_VAL=42
+      - TEST_VAL=a42
       - SOMETHING=${SQUASH_BRANCH_WITH_ID}ABC
       - REGISTRY_PASSWORD=$REGISTRY_PASSWORD
-      - $SOMETHING=test
+      - $TEST_VAL=test
     copy_files: /${TEST_VAL}ABC ~/code
     auto_deploy_on_commits: true     adas
     squash_pr_comments: true   asd
