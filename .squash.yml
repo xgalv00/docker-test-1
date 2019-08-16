@@ -51,7 +51,7 @@ deployments:
       ./stuff/Dockerfile
     dockerfileonly: true
     build_options: --build-arg TEST_VAL2 --build-arg TEST_VAL
-    run_options: --hostname ${SQUASH_BRANCH_WITH_ID} --env TEST_VAL2=$SQUASH_BRANCH_WITH_ID --restart always --env TEST --env TEST1 --env TEST2=${TEST2}
+    run_options: --hostname ${SQUASH_BRANCH_WITH_ID} --env TEST_VAL2=$SQUASH_BRANCH_WITH_ID --restart always --env TEST --env TEST1=${TEST1} --env TEST2=${TEST2}
     context_path: ./stuff
     subdomains:
       Awesome Name:
