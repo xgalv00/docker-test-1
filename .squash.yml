@@ -17,6 +17,8 @@ deployments:
     auto_deploy_on_commits: true     adas
     squash_pr_comments: true   asd
     build_options: --build-arg SOMETHING=$SQUASH_BRANCH
+    allow_private_ports: 1234, 1010
+    allow_public_ports: 8888, 8000
     subdomain_port_mapping:
       - test:81
       - test--test:81
