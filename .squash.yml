@@ -14,8 +14,8 @@ deployments:
       - $TEST_VAL=test
       - TEST_VAL2=abcd!?#$&&_123
     copy_files: /${TEST_VAL}ABC ~/code
-    auto_deploy_on_commits: true     adas
-    squash_pr_comments: true   asd
+    auto_deploy_on_commits: true asd
+    squash_pr_comments: true
     build_options: --build-arg SOMETHING=$SQUASH_BRANCH
     allow_private_ports: 41234, 1010
     allow_public_ports: 8888, 48000
@@ -134,6 +134,7 @@ deployments:
     filename:
       ./docker-compose.yml
   nodocker:
+    auto_deploy_on_commits: true
     dockerimage:
       r.cfcr.io/wisedrette/wisedrette/dockertest:master
     docker_registry:
