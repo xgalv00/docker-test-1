@@ -21,8 +21,8 @@ deployments:
     allow_private_ports: 41234, 1010
     allow_public_ports: 8888, 48000
     subdomain_port_mapping:
-      - test:81
-      - test--test:81
+      - test:80
+      - test--test:80
       - another-test:8000
       - and--another-test:8000
     deployment_page_commands:
