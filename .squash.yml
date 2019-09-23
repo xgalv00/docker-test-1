@@ -5,7 +5,7 @@ deployments:
     ready_wait: 20
     some_field: 123
     backend_wait: abc
-    success_response_check_url: /about
+    success_response_check_url: test, /about
     dc_skip_docker_build: false
     environment:
       - TEST_VAL=a42
