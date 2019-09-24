@@ -1,6 +1,6 @@
 deployments:
   default:
-    vm_size: 1G
+    vm_size: 2G
     vm_storage_gb: 10G
     ready_wait: 120
     copy_files: /abcd ~/code
@@ -29,4 +29,3 @@ deployments:
       server: r.cfcr.io
       username: wisedrette
       password: $REGISTRY_PASSWORD
- 

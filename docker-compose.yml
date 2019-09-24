@@ -4,10 +4,13 @@ services:
     build: ./stuff
     ports:
       - 80:80
+      - 3000:80
     environment:
       - SQUASH_BRANCH_WITH_ID
       - SQUASH_DOMAIN
-      - SQUASH_MASTER_DEPLOYMENT      
+      - SQUASH_MASTER_DEPLOYMENT
+      - ${SQUASH_BRANCH_WITH_ID}ABC
+      - a42
     command: bash ./run_server.sh
     volumes:
       - /assets:/assets
