@@ -19,3 +19,4 @@ services:
     command: bash ./run_server.sh
     volumes:
       - /assets:/assets
+
