@@ -15,7 +15,6 @@ deployments:
       - $TEST_VAL=test
       - TEST_VAL2=abcd!?#$&&_123
     copy_files: /${TEST_VAL}ABC ~/code
-    auto_deploy_on_commits: true asd
     squash_pr_comments: true
     pr_comment_check_folders:
       - stuff/
@@ -138,7 +137,6 @@ deployments:
     filename:
       ./docker-compose.yml
   nodocker:
-    auto_deploy_on_commits: true
     dockerimage:
       r.cfcr.io/wisedrette/wisedrette/dockertest:master
     docker_registry:
