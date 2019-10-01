@@ -18,6 +18,7 @@ deployments:
     squash_pr_comments: true
     pr_comment_check_folders:
       - ./stuff/
+      - .squash.yml
     build_options: --build-arg SOMETHING=$SQUASH_BRANCH
     allow_private_ports: 41234, 1010
     allow_public_ports: 8888, 48000
