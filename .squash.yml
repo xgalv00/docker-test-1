@@ -5,11 +5,11 @@ deployments:
     ready_wait: 120
     copy_files: /abcd ~/code
     squash_pr_comments: true
-    pipelines:
-      - default:
-          scripts:
-            - echo true
-            - python ./selenium_test.py
+#     pipelines:
+#       - default:
+#           scripts:
+#             - echo true
+#             - python ./selenium_test.py
   branch:
     vm_size: 1
     vm_storage_gb: 13
