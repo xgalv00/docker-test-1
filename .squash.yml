@@ -4,29 +4,27 @@ deployments:
     vm_storage_gb: 10G
     ready_wait: 120
     copy_files: /abcd ~/code
-    auto_deploy_disable_cache: true
-    auto_deploy_on_commits: true
     squash_pr_comments: true
-    auto_deploy_post_launch_commands:
-      default:
-        - echo true
-        - python ./selenium_test.py
+    pipelines:
+      - default:
+          scripts:
+            - echo true
+            - python ./selenium_test.py
   branch:
     vm_size: 1
     vm_storage_gb: 13
-    auto_deploy_disable_cache: true
-    auto_deploy_on_commits: false
     ready_wait: 120
     filename: ./stuff/Dockerfile
     dockerfileonly: true
     context_path: ./stuff
   nodocker:
-    auto_deploy_disable_cache: true
-    auto_deploy_on_commits: false
     dockerimage:
       r.cfcr.io/wisedrette/wisedrette/dockertest:master
     docker_registry:
       server: r.cfcr.io
       username: wisedrette
       password: $REGISTRY_PASSWORD
- 
+    pipelines:
+      - default:
+          scripts:
+            - echo true
