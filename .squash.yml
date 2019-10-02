@@ -23,4 +23,3 @@ deployments:
       - default:
           scripts:
             - echo true
-
