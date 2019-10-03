@@ -26,3 +26,4 @@ deployments:
       - secondary:
           scripts:
             - sleep 30 && ls -la
+
