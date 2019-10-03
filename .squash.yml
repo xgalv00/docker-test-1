@@ -28,7 +28,3 @@ deployments:
       - default:
           scripts:
             - echo true
-      - secondary:
-          scripts:
-            - sleep 30 && ls -la
-
