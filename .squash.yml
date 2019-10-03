@@ -25,4 +25,4 @@ deployments:
             - echo true
       - secondary:
           scripts:
-            - ls -la
+            - sleep 30 && ls -la
