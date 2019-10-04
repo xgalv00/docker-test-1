@@ -25,5 +25,6 @@ deployments:
           build_steps:
             - echo something
             - ls -la
+            - apt-get install -y wget
           scripts:
             - echo true
