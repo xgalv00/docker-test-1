@@ -25,5 +25,6 @@ deployments:
             - apt-get install -y git
             - ls -la
             - cat ./pipeline-start.sh
+            - echo something
           scripts:
             - echo true
