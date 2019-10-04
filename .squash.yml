@@ -8,8 +8,8 @@ deployments:
     pipelines:
       - default:
           scripts:
-            stuff-service:
-              - echo true
+            - stuff-service:
+                - echo true
   branch:
     vm_size: 1
     vm_storage_gb: 13
