@@ -10,6 +10,7 @@ deployments:
           scripts:
             - stuff-service:
                 - echo true
+
   branch:
     vm_size: 1
     vm_storage_gb: 13
@@ -17,6 +18,7 @@ deployments:
     filename: ./stuff/Dockerfile
     dockerfileonly: true
     context_path: ./stuff
+
   nodocker:
     dockerimage:
       r.cfcr.io/wisedrette/wisedrette/dockertest:master
