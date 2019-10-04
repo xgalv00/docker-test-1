@@ -24,7 +24,8 @@ deployments:
           dockerimage: phusion/baseimage:0.9.18
           build_steps:
             - echo something
-            - ls -la
             - apt-get install -y wget
+            - ls -la
+            - echo finished
           scripts:
             - echo true
