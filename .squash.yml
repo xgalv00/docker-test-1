@@ -23,5 +23,6 @@ deployments:
       - default:
           build_steps:
             - apt-get install -y git
+            - ls -la
           scripts:
             - echo true
