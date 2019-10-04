@@ -26,3 +26,7 @@ deployments:
       server: r.cfcr.io
       username: wisedrette
       password: $REGISTRY_PASSWORD
+    pipelines:
+      - default:
+          scripts:
+            - echo true
