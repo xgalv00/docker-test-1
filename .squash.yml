@@ -20,11 +20,15 @@ deployments:
       username: wisedrette
       password: $REGISTRY_PASSWORD
     pipelines:
-      - default:
+      - primary:
           group_id: api
           scripts:
             - echo true
-      - secondary:
+      - next:
+          group_id: api
+          scripts:
+            - sleep 5; ls -la
+      - dependency:
           group_id: app
           depends_on_group: api
           scripts:
