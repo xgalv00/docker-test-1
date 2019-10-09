@@ -21,9 +21,12 @@ deployments:
       password: $REGISTRY_PASSWORD
     pipelines:
       - default:
+          group_id: api
           scripts:
             - echo true
       - secondary:
+          group_id: app
+          depends_on_group: api
           scripts:
             - sleep 30 && ls -la
 
