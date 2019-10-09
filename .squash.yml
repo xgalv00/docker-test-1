@@ -28,5 +28,4 @@ deployments:
           group_id: app
           depends_on_group: api
           scripts:
-            - sleep 30 && ls -la
-
+            - ls -la
