@@ -23,7 +23,7 @@ deployments:
             - squash-cmd--aws-s3-upload:
                 bucket: tfm-test-bucket
                 region: us-east-1
-                from_folder: user-pics
+                from_folder: /usr/src/app/user-pics
                 overwrite: true
                 arguments: |
                  --quiet  \
