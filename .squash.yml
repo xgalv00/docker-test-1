@@ -15,7 +15,6 @@ deployments:
     squash-cmd--aws-credentials:
       aws_access_key: $ACCESS_KEY
       aws_secret_key: $SECRET_KEY
-      region: us-east-1
     pipelines:
       - s3:
           scripts:
@@ -23,6 +22,7 @@ deployments:
             - touch user-pics/filename
             - squash-cmd--aws-s3-upload:
                 bucket: tfm-test-bucket
+                region: us-east-1
                 from_folder: user-pics
                 overwrite: true
                 arguments: |
