@@ -34,3 +34,6 @@ deployments:
                 region: us-east-1
                 from_folder: user-pics
                 to_folder: test-upload
+                arguments: |
+                 --quiet  \
+                 --cache-control "max-age=11300"
