@@ -25,7 +25,6 @@ deployments:
                 region: us-east-1
                 from_folder: user-pics
                 is_download: true
-                overwrite: true
                 arguments: |
                  --quiet  \
                  --cache-control "max-age=11300"
