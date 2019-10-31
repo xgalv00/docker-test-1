@@ -7,6 +7,7 @@ deployments:
     auto_deploy_disable_cache: true
     auto_deploy_on_commits: true
     squash_pr_comments: true
+    auto_deploy_ttl: 30m
     auto_deploy_post_launch_commands:
       default:
         - echo true
@@ -16,6 +17,7 @@ deployments:
     vm_storage_gb: 13
     auto_deploy_disable_cache: true
     auto_deploy_on_commits: false
+    auto_deploy_ttl: 5h
     ready_wait: 120
     filename: ./stuff/Dockerfile
     dockerfileonly: true
@@ -23,6 +25,7 @@ deployments:
   nodocker:
     auto_deploy_disable_cache: true
     auto_deploy_on_commits: false
+    auto_deploy_ttl: 40m
     dockerimage:
       r.cfcr.io/wisedrette/wisedrette/dockertest:master
     docker_registry:
