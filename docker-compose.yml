@@ -19,3 +19,8 @@ services:
     command: bash ./run_server.sh
     volumes:
       - /assets:/assets
+  
+  alt-service:
+      image: openresty/openresty:jessie
+      ports:
+        - 8080:80
