@@ -23,4 +23,3 @@ services:
       image: openresty/openresty:jessie
       ports:
         - 80:80
-        - 8080:80
