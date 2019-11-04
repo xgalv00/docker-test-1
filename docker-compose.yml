@@ -3,7 +3,6 @@ services:
   stuff-service:
     build: ./stuff
     ports:
-      - 80:80
       - 3000:80
     environment:
       - TEST_VAL
@@ -23,4 +22,5 @@ services:
   alt-service:
       image: openresty/openresty:jessie
       ports:
+        - 80:80
         - 8080:80
