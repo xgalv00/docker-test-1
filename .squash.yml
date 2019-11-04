@@ -20,10 +20,8 @@ deployments:
     allow_private_ports: 41234, 1010
     allow_public_ports: 8888, 48000
     subdomain_port_mapping:
-      - test:80
-      - test--test:80
+      - test:3000
       - another-test:8080
-      - and--another-test:8080
   /PI:
     vm_size: 1
     vm_storage_gb: 130
