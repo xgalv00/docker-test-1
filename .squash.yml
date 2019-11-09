@@ -5,6 +5,7 @@ deployments:
     ready_wait: 20
     some_field: 123
     success_response_check:
+      url_check_behaviour: check_all
       urls:
         - test--,/about/
         - test--,/
