@@ -3,6 +3,7 @@ deployments:
     vm_size: 2G
     vm_storage_gb: 10G
     success_response_check:
+      fallback: false
       url_check_behaviour: check_all
       urls:
         - test--,/about/
