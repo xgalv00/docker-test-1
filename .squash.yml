@@ -6,7 +6,7 @@ deployments:
       TEST_VAL=42
     ready_wait: 120
     backend_wait: 20
-    port_forwarding: 8000:80
+    port_forwarding: 8000:8000
     subdomain_port_mapping:
       - test:81
       - test--test:81
