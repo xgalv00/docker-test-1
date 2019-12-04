@@ -2,7 +2,7 @@ deployments:
   default:
     vm_size: 2G
     vm_storage_gb: 10G
-    ready_wait: 30
+    ready_wait: 40
     success_response_check:
       fallback: false
       url_check_behaviour: check_all
