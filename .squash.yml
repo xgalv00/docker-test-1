@@ -2,26 +2,20 @@ deployments:
   default:
     vm_size: 1G
     vm_storage_gb: 10G  
-    environment:
-      TEST_VAL=42
-    ready_wait: 120
-    backend_wait: 20
+    ready_wait: 10
+    backend_wait: 5
     copy_files: /abcd ~/code
-    check_root_url: true
+    success_response_check:
+      fallback: false
+      url_check_behaviour: check_all
+      urls:
+        - test--,/about/
+        - test--,/
     subdomain_port_mapping:
       - test:81
       - test--test:81
       - another-test:8000
       - and--another-test:8000
-    deployment_page_commands:
-      list something:
-        - ls -la ./
-        - sleep 40 && echo branch id is $SQUASH_BRANCH_WITH_ID
-      echo awesome:
-        - echo awesome
-      echo target:
-        stuff-service:
-          - echo awesome
   branch:
     vm_size: 4
     vm_storage_gb: 16
