@@ -6,7 +6,6 @@ deployments:
     backend_wait: 5
     copy_files: /abcd ~/code
     success_response_check:
-      fallback: false
       url_check_behaviour: check_all
       urls:
         - test--,/about/
