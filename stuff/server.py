@@ -20,7 +20,7 @@ def activate_job():
 @app.route('/')
 def index():
     logging.warning(request.referrer)
-    return '<body>Hello world. <a href="/about/">About this page</a>.</body>'
+    abort(400, 'Error') 
 
 
 @app.route('/about/')
