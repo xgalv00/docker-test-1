@@ -4,7 +4,6 @@ deployments:
     vm_storage_gb: 10G
     success_response_check:
       fallback: true
-      url_check_behaviour: check_all
       urls:
         - test--,/about/
         - test--,/
@@ -20,7 +19,8 @@ deployments:
     allow_private_ports: 41234, 1010
     allow_public_ports: 8888, 48000
     subdomain_port_mapping:
-      - test:3000
+      - test:80
+      - nginx:3000
   /PI:
     vm_size: 1
     vm_storage_gb: 130
