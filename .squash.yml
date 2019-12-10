@@ -2,8 +2,7 @@ deployments:
   default:
     vm_size: 1G
     vm_storage_gb: 10G  
-    ready_wait: 10
-    backend_wait: 5
+    ready_wait: 120
     copy_files: /abcd ~/code
     success_response_check:
       url_check_behaviour: check_all
