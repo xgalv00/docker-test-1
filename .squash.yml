@@ -7,7 +7,6 @@ deployments:
     success_response_check:
       url_check_behaviour: check_all
       urls:
-        - test--,/about/
         - test--,/
     subdomain_port_mapping:
       - test:81
