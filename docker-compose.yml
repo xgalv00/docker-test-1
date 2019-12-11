@@ -14,6 +14,7 @@ services:
       - SQUASH_DOMAIN
       - SQUASH_MASTER_DEPLOYMENT
       - ${SQUASH_BRANCH_WITH_ID}ABC
+      - SOMETHING
       - a42
     command: bash ./run_server.sh
     volumes:
