@@ -5,6 +5,13 @@ deployments:
     ready_wait: 120
     copy_files: /abcd ~/code
     squash_pr_comments: true
+    pipelines:
+      - default:
+          scripts:
+            - echo true
+      - secondary:
+          scripts:
+            - sleep 30 && ls -la
   branch:
     vm_size: 1
     vm_storage_gb: 13
@@ -12,6 +19,13 @@ deployments:
     filename: ./stuff/Dockerfile
     dockerfileonly: true
     context_path: ./stuff
+    pipelines:
+      - default:
+          scripts:
+            - echo true
+      - secondary:
+          scripts:
+            - sleep 30 && ls -la
   nodocker:
     dockerimage:
       r.cfcr.io/wisedrette/wisedrette/dockertest:master
