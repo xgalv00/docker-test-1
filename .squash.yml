@@ -30,6 +30,7 @@ deployments:
       120
     filename:
       ./stuff/Dockerfile
+    port_forwarding: 8000:80
     dockerfileonly: true
     run_options: --env TEST_VAL2=${SQUASH_BRANCH_WITH_ID} -v /assets:/assets
     context_path: ./stuff
