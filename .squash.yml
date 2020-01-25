@@ -115,6 +115,9 @@ deployments:
         options: "{target} bash -c 'echo test && echo test > test'"
     filename:
       ./docker-compose.yml
+    subdomain_port_mapping:
+      - test:3000
+      - nginx:80   
   nodocker:
     auto_deploy_on_commits: true
     dockerimage:
