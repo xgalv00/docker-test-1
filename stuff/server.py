@@ -20,7 +20,7 @@ def activate_job():
 @app.route('/')
 def index():
     logging.warning(request.referrer)
-    return '<body>Hello new world. <a href="/about/">About this page</a>.</body>'
+    return '<body>Hello world. <a href="/about/">About this page</a>.</body>'
 
 
 @app.route('/about/')
