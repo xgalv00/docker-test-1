@@ -1,7 +1,0 @@
-environment:
-  TEST_VAL=42
-post_install:
-  stuff-service:
-    - echo hello world
-    - echo TEST_VAL is $TEST_VAL
-    - echo domain is $SQUASH_DOMAIN
