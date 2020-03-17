@@ -6,3 +6,8 @@ deployments:
       list something:
         - ls -la ./
         - sleep 2 && echo branch id is $SQUASH_BRANCH_WITH_ID
+      target:
+        stuff:
+          - echo "branch id is $SQUASH_BRANCH_WITH_ID"
+        alt:
+          - bash -c 'echo commit is $SQUASH_COMMIT_SHA'
