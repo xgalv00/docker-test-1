@@ -13,9 +13,9 @@ services:
       - /assets:/assets
   
   alt-service:
-      image: openresty/openresty:jessie
-      ports:
-        - 3000:80
+    image: openresty/openresty:jessie
+    ports:
+      - 3000:80
     environment:
       - SQUASH_BRANCH_WITH_ID
       - SQUASH_DOMAIN
