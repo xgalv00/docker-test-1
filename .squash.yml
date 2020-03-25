@@ -7,11 +7,11 @@ deployments:
     auto_deploy_on_commits: true
     squash_pr_comments: true
     pipelines:
-      default:
-        scripts:
-          - stuff:
-              - echo true
-              - ls -la
+      - default:
+          scripts:
+            - stuff:
+                - echo true
+                - ls -la
   branch:
     vm_size: 1
     vm_storage_gb: 13
