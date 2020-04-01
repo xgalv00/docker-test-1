@@ -23,7 +23,7 @@ deployments:
     dockerfileonly: true
     context_path: ./stuff
     pipelines:
-      default:
-        scripts:
-          - ls -la
+      - default:
+          scripts:
+            - ls -la
 
