@@ -11,4 +11,4 @@ deployments:
     allow_public_ports: 8888, 48000
     subdomain_port_mapping:
       - test:3000
-      - nginx:80
+      - nginx:88
