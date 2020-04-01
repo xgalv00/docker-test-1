@@ -25,4 +25,4 @@ services:
   alt-service:
       image: openresty/openresty:jessie
       ports:
-        - 80:80
+        - 88:80
