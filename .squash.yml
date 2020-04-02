@@ -10,5 +10,5 @@ deployments:
     allow_private_ports: 41234, 1010
     allow_public_ports: 8888, 48000
     subdomain_port_mapping:
-      - test:3000
-      - nginx:88
+      - test:3333
+      - nginx:8888
