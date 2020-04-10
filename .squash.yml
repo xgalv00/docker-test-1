@@ -1,5 +1,6 @@
 deployments:
   default:
+    allow_cors: true
     vm_size: 2G
     vm_storage_gb: 10G
     success_response_check:
